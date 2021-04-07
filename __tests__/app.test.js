@@ -35,7 +35,7 @@ describe('breweries-crud-app routes', () => {
   })
 
   it('gets a favorite by id', () => {
-    const existingBrew = [{ id: '1', name: 'Base Camp Brewing', type: 'micro', city: 'Portland', state: 'Oregon' }];
+    const existingBrew = { id: '1', name: 'Base Camp Brewing', type: 'micro', city: 'Portland', state: 'Oregon' };
 
     return request(app)
       .get('/api/v1/favorites/1')
@@ -45,7 +45,7 @@ describe('breweries-crud-app routes', () => {
   })
 
   it('updates a favorite', () => {
-    const updatedBrew = [{ id: '1', name: 'Base Camp Brewing', type: 'macro', city: 'Portland', state: 'Oregon' }];
+    const updatedBrew = { id: '1', name: 'Base Camp Brewing', type: 'macro', city: 'Portland', state: 'Oregon' };
 
     return request(app)
       .put('/api/v1/favorites/1')
