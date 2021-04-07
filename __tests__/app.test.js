@@ -43,4 +43,16 @@ describe('breweries-crud-app routes', () => {
         expect(res.body).toEqual(existingBrew);
       })
   })
+
+  it('updates a favorite', () => {
+    const updatedBrew = [{ id: '1', name: 'Base Camp Brewing', type: 'macro', city: 'Portland', state: 'Oregon' }];
+
+    return request(app)
+      .put('/api/v1/favorites/1')
+      .send(updatedBrew)
+      .then((res) => {
+        expect(res.body).toEqual(updatedBrew);
+      })
+  })
+
 });
