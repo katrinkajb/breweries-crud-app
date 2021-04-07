@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS favorites;
+
+CREATE TABLE favorites (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL,
+    city TEXT NOT NULL,
+    state TEXT NOT NULL,
+    website VARCHAR(700) NOT NULL
+)
