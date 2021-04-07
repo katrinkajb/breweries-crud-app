@@ -55,4 +55,13 @@ describe('breweries-crud-app routes', () => {
       })
   })
 
+  it('deletes a favorite', () => {
+    const deletedBrew = { id: '1', name: 'Base Camp Brewing', type: 'macro', city: 'Portland', state: 'Oregon' };
+
+    return request(app)
+      .delete('/api/v1/favorites/1')
+      .then((res) => {
+        expect(res.body).toEqual(deletedBrew);
+      })
+  })
 });
