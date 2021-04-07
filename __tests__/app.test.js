@@ -20,18 +20,16 @@ describe('breweries-crud-app routes', () => {
       .post('/api/v1/favorites')
       .send(newBrew)
       .then((res) => {
-
         expect(res.body).toEqual(newBrew);
       })
   })
 
   it('gets all breweries in favorites', () => {
-    const existingBrew = [{ name: 'Base Camp Brewing', type: 'micro', city: 'Portland', state: 'Oregon' }];
+    const existingBrew = [{ id: '1', name: 'Base Camp Brewing', type: 'micro', city: 'Portland', state: 'Oregon' }];
 
     return request(app)
       .get('/api/v1/favorites')
       .then((res) => {
-
         expect(res.body).toEqual(existingBrew);
       })
   })
