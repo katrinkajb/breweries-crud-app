@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Fave = require('../lib/model/Fave');
 
 describe('breweries-crud-app routes', () => {
   beforeEach(() => {
@@ -9,14 +10,14 @@ describe('breweries-crud-app routes', () => {
   });
 
   // beforeEach(async () => {
-  //   await 
+  //   await Fave.insert({ name: 'Base Camp Brewing', type: 'micro', city: 'Portland', state: 'Oregon' })
   // });
 
   it('adds a brewery to favorites', () => {
-    const newBrew = {name: 'Breakside Brewery', type: 'micro', city: 'Portland', state: 'Oregon'}
+    const newBrew = {id: '2', name: 'Breakside Brewery', type: 'micro', city: 'Portland', state: 'Oregon' };
 
     return request(app)
-      .post('/api.v1/breweries')
+      .post('/api/v1/favorites')
       .send(newBrew)
       .then((res) => {
 
@@ -24,10 +25,5 @@ describe('breweries-crud-app routes', () => {
       })
   })
 
-  it.skip('gets a list of all favorites', () => {
-
-
-    expect().toEqual();
-  })
 
 });
